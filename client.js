@@ -33,6 +33,52 @@ const employees = [
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
+function bonusCalc(employeeArray){
+  let bonusArray = [];
+
+  for ( let employee of employees){
+    let bonus = 0;
+
+    if (employee.reviewRating === 3){
+      bonus += 4;
+    } else if (employee.reviewRating === 4){
+      bonus += 6;
+    } else if (employee.reviewRating === 5){
+      bonus += 10;
+    }
+      let en = Number(employee.employeeNumber)
+    if (en < 10000 && en >= 1000 ) {
+      bonus += 5;
+    }
+
+    let as = Number(employee.annualSalary);
+    if (as >= 65000) {
+      bonus -= 1;
+    }
+
+    if (bonus > 13) {
+      bonus = 13
+    } else if (bonus < 0) {
+      bonus = 0;
+    }
+let newObject ={
+  name: employee.name,
+  bonusPercentage: bonus,
+  totalCompensation: Math.round((bonus/100 +1)*as),
+  totalBonus: Math.round((bonus/100)*as)
+}
+    bonusArray.push(newObject)
+  }
+  for (let bonus of bonusArray){
+    document.getElementById("bones").innerHTML = bonus.totalBonus;
+  }
+
+
+  return bonusArray;
+}
+console.log(bonusCalc(employees));
+
+
 // This problem is massive! Break the problem down, take small steps, and test as you go.
 // What is the fewest lines of code I can write and test to get just a little closer?
 
