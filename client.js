@@ -32,8 +32,18 @@ const employees = [
 ];
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
+// $(function() {
 
-function bonusCalc(employeeArray){
+// });
+
+$ (readyNow);
+function readyNow(){
+  console.log('JQ');
+  $( '#bonusButton') .on('click', bonusCalc)
+  $()
+}
+
+function bonusCalc(){
   let bonusArray = [];
 
   for ( let employee of employees){
@@ -69,10 +79,26 @@ let newObject ={
 }
     bonusArray.push(newObject)
   }
-
+console.log(bonusArray)
+function showEmployees(){
+  let ees = $('#employees')
+  ees.empty();
+  for (let employee of bonusArray){
+    ees.append('<li>'+ employee.name + ', ' + employee.bonusPercentage+ ', ' + employee.totalCompensation+', '+ employee.totalBonus + '</li>');
+  }
+}
+showEmployees();
   return bonusArray;
 }
-console.log(bonusCalc(employees));
+
+// function showEmployees(){
+//   let ees = $('#employees')
+//   ees.empty();
+//   for (let employee of bonusArray){
+//     ees.append('<li>'+ employee.name + ', ' + employee.bonusPercentage+ ', ' + employee.totalCompensation+', '+ employee.totalBonus + '</li>');
+//   }
+// }
+//console.log(bonusCalc(employees));
 
 
 // This problem is massive! Break the problem down, take small steps, and test as you go.
@@ -81,4 +107,4 @@ console.log(bonusCalc(employees));
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-console.log( employees );
+//console.log( employees 
