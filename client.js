@@ -69,10 +69,6 @@ let newObject ={
 }
     bonusArray.push(newObject)
   }
-  for (let bonus of bonusArray){
-    document.getElementById("bones").innerHTML = bonus.totalBonus;
-  }
-
 
   return bonusArray;
 }
